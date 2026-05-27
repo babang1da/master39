@@ -15,14 +15,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ru" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-gray-50">
-        <header className="bg-blue-600 text-white p-4">
+        <header className="header-gradient text-white p-4 shadow-lg">
           <div className="max-w-5xl mx-auto flex justify-between items-center">
-            <Link href="/" className="text-xl font-bold">🔧 Мастер 39</Link>
-            <nav className="flex gap-4 text-sm">
-              <Link href="/masters" className="hover:underline">Мастера</Link>
-              <Link href="/register" className="hover:underline">Стать мастером</Link>
-              <Link href="/order" className="hover:underline">Заказать</Link>
-              <Link href="/dashboard" className="hover:underline">Кабинет</Link>
+            <Link href="/" className="text-xl font-bold drop-shadow">🔧 Мастер 39</Link>
+            <nav className="flex gap-4 text-sm font-medium">
+              <Link href="/masters" className="hover:underline drop-shadow">Мастера</Link>
+              <Link href="/register" className="hover:underline drop-shadow">Стать мастером</Link>
+              <Link href="/order" className="hover:underline drop-shadow">Заказать</Link>
+              <Link href="/dashboard" className="hover:underline drop-shadow">Кабинет</Link>
             </nav>
           </div>
         </header>
