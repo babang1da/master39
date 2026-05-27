@@ -1,0 +1,68 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  phone     String   @unique
+  email     String?
+  role      String   @default("MASTER") // MASTER | CLIENT | ADMIN
+  city      String   @default("Калининград")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  masterProfile Master?
+  ordersCreated Order[]  @relation("ClientOrders")
+}
+
+model Master {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  specialties String   @default("") // сантехника,электрика,сборка мебели
+  pricePerHour Int     @default(500)
+  experience  Int      @default(0) // лет опыта
+  description String   @default("")
+  rating      Float    @default(0)
+  reviewCount Int      @default(0)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  orders      Order[]  @relation("MasterOrders")
+  reviews     Review[]
+}
+
+model Order {
+  id          String   @id @default(cuid())
+  clientId    String
+  client      User     @relation("ClientOrders", fields: [clientId], references: [id])
+  masterId    String?
+  master      Master?  @relation("MasterOrders", fields: [masterId], references: [id])
+  service     String
+  description String   @default("")
+  city        String   @default("Калининград")
+  address     String   @default("")
+  price       Int      @default(0)
+  status      String   @default("NEW") // NEW | ASSIGNED | IN_PROGRESS | DONE | CANCELLED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  review      Review?
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  masterId  String
+  master    Master   @relation(fields: [masterId], references: [id])
+  orderId   String   @unique
+  order     Order    @relation(fields: [orderId], references: [id])
+  rating    Int      // 1-5
+  text      String   @default("")
+  createdAt DateTime @default(now())
+}
