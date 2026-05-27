@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'standalone',
+  /* empty — Railpack handles everything */
 }
 
 export default nextConfig;
