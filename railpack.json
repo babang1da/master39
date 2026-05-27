@@ -1,0 +1,8 @@
+{
+  "build": {
+    "command": "pnpm build"
+  },
+  "start": {
+    "command": "npx prisma db push --skip-generate && npx next start -p $PORT"
+  }
+}
