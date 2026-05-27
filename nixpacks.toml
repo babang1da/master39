@@ -1,3 +1,4 @@
+# Cache bust: 2026-05-27-18:45 UTC
 [phases.setup]
 nixPkgs = ["nodejs_20", "pnpm-9_x"]
 
