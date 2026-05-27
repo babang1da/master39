@@ -22,9 +22,9 @@ export default async function HomePage() {
     <div className="space-y-10">
       {/* Hero */}
       <section className="text-center py-12">
-        <h1 className="text-4xl font-bold mb-4">Муж на час в Калининграде</h1>
+        <h1 className="text-4xl font-bold mb-4">Мастер 39 — услуги в Калининграде</h1>
         <p className="text-lg text-gray-600 mb-6 max-w-xl mx-auto">
-          Сантехник, электрик, сборка мебели, мелкий ремонт — быстро, честно, с гарантией
+          Сантехник, электрик, сборка мебели, мелкий ремонт — быстро, честно, без посредников
         </p>
         <Link
           href="/order"
