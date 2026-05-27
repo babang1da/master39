@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export default async function MastersPage({ searchParams }: { searchParams: Promise<{ specialty?: string }> }) {
   const { specialty } = await searchParams;
   const masters = await prisma.master.findMany({

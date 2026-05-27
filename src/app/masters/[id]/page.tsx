@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
+
+export const dynamic = "force-dynamic";
 import { notFound } from "next/navigation";
 
 export default async function MasterDetailPage({ params }: { params: Promise<{ id: string }> }) {
